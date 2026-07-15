@@ -12,6 +12,7 @@
 		A10000030000000000000001 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000030000000000000001 /* ContentView.swift */; };
 		A10000040000000000000001 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000040000000000000001 /* BoardView.swift */; };
 		A10000050000000000000001 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000050000000000000001 /* CellView.swift */; };
+		A10000070000000000000001 /* ComputerPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000070000000000000001 /* ComputerPlayer.swift */; };
 		A10000060000000000000001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A20000060000000000000001 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -21,6 +22,7 @@
 		A20000030000000000000001 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A20000040000000000000001 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		A20000050000000000000001 /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
+		A20000070000000000000001 /* ComputerPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerPlayer.swift; sourceTree = "<group>"; };
 		A20000060000000000000001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A30000010000000000000001 /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -67,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				A20000020000000000000001 /* GameModel.swift */,
+				A20000070000000000000001 /* ComputerPlayer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 				A10000030000000000000001 /* ContentView.swift in Sources */,
 				A10000040000000000000001 /* BoardView.swift in Sources */,
 				A10000050000000000000001 /* CellView.swift in Sources */,
+				A10000070000000000000001 /* ComputerPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

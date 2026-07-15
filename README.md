@@ -1,6 +1,6 @@
 # Tic Tac Toe (macOS)
 
-A native macOS tic-tac-toe game built with SwiftUI.
+A native macOS tic-tac-toe game built with SwiftUI. Play against an unbeatable computer opponent.
 
 ## Requirements
 
@@ -9,9 +9,9 @@ A native macOS tic-tac-toe game built with SwiftUI.
 
 ## Features
 
-- Two-player local gameplay (X and O alternate turns)
-- Win and draw detection
-- Running scoreboard with reset
+- Single-player mode against a minimax AI (optimal play)
+- You play as **X** (blue); the computer plays as **O** (orange)
+- Win and draw detection with a running scoreboard
 - Native macOS UI with hover feedback and keyboard shortcuts
 - **⌘N** — start a new game
 
@@ -26,19 +26,21 @@ A native macOS tic-tac-toe game built with SwiftUI.
 
 ```
 TicTacToe/
-├── TicTacToeApp.swift      # App entry point
+├── TicTacToeApp.swift         # App entry point
 ├── Models/
-│   └── GameModel.swift     # Game state and logic
+│   ├── GameModel.swift        # Game state and turn flow
+│   └── ComputerPlayer.swift   # Minimax AI opponent
 ├── Views/
-│   ├── ContentView.swift   # Main window layout
-│   ├── BoardView.swift     # 3×3 game grid
-│   └── CellView.swift      # Individual cell button
-└── Assets.xcassets         # App icon and accent color
+│   ├── ContentView.swift      # Main window layout
+│   ├── BoardView.swift        # 3×3 game grid
+│   └── CellView.swift         # Individual cell button
+└── Assets.xcassets            # App icon and accent color
 ```
 
 ## How to Play
 
-1. Player **X** goes first (blue).
+1. You go first as **X**.
 2. Click an empty cell to place your mark.
-3. Get three in a row — horizontally, vertically, or diagonally — to win.
-4. Use **New Game** to play again, or **Reset Scores** to clear the scoreboard.
+3. The computer responds automatically after a short pause.
+4. Get three in a row — horizontally, vertically, or diagonally — to win.
+5. With perfect play on both sides, the game ends in a draw. Use **New Game** to play again, or **Reset Scores** to clear the scoreboard.

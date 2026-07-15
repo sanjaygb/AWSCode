@@ -18,10 +18,12 @@ struct ContentView: View {
                     game.startNewGame()
                 }
                 .keyboardShortcut("n", modifiers: .command)
+                .disabled(game.isComputerThinking)
 
                 Button("Reset Scores") {
                     game.resetScores()
                 }
+                .disabled(game.isComputerThinking)
             }
         }
     }
@@ -30,6 +32,10 @@ struct ContentView: View {
         VStack(spacing: 8) {
             Text("Tic Tac Toe")
                 .font(.system(size: 28, weight: .bold, design: .rounded))
+
+            Text("vs Computer")
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
 
             Text(game.statusMessage)
                 .font(.title3.weight(.medium))
@@ -40,9 +46,9 @@ struct ContentView: View {
 
     private var footer: some View {
         HStack(spacing: 24) {
-            scoreBadge(title: "X", value: game.scores[.x, default: 0], color: .blue)
+            scoreBadge(title: "You", value: game.humanWins, color: .blue)
             scoreBadge(title: "Draws", value: game.draws, color: .secondary)
-            scoreBadge(title: "O", value: game.scores[.o, default: 0], color: .orange)
+            scoreBadge(title: "Computer", value: game.computerWins, color: .orange)
         }
         .font(.headline)
     }
@@ -64,11 +70,15 @@ struct ContentView: View {
     }
 
     private var statusColor: Color {
+        if game.isComputerThinking {
+            return .orange
+        }
+
         switch game.outcome {
         case .inProgress:
-            return game.currentPlayer == .x ? .blue : .orange
+            return game.currentPlayer == game.humanPlayer ? .blue : .orange
         case .won(let player):
-            return player == .x ? .blue : .orange
+            return player == game.humanPlayer ? .blue : .orange
         case .draw:
             return .secondary
         }
