@@ -1,0 +1,45 @@
+name: Build macOS App
+
+on:
+  push:
+    branches:
+      - master
+      - 'cursor/**'
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-14
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build Release
+        run: |
+          xcodebuild \
+            -project TicTacToe.xcodeproj \
+            -scheme TicTacToe \
+            -configuration Release \
+            -derivedDataPath build/DerivedData \
+            CODE_SIGN_IDENTITY="-" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+
+      - name: Package app
+        run: |
+          APP_PATH="$(find build/DerivedData -name 'TicTacToe.app' -type d | head -1)"
+          if [ -z "$APP_PATH" ]; then
+            echo "TicTacToe.app not found"
+            exit 1
+          fi
+          echo "Packaging $APP_PATH"
+          ditto -c -k --sequesterRsrc --keepParent "$APP_PATH" TicTacToe-macOS.zip
+
+      - name: Upload app artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: TicTacToe-macOS
+          path: TicTacToe-macOS.zip
+          if-no-files-found: error

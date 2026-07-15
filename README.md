@@ -17,10 +17,26 @@ A native macOS tic-tac-toe game built with SwiftUI. Play against an unbeatable c
 
 ## Getting Started
 
+### Option A: Build on your Mac
+
 1. Clone this repository.
 2. Open `TicTacToe.xcodeproj` in Xcode.
 3. Select the **TicTacToe** scheme and **My Mac** as the run destination.
 4. Press **⌘R** to build and run.
+
+Or build from the command line:
+
+```bash
+chmod +x scripts/build.sh
+./scripts/build.sh
+open build/release/TicTacToe.app
+```
+
+### Option B: Download a prebuilt app (CI)
+
+Every push to this repo triggers a GitHub Actions build on macOS. Download the latest **`TicTacToe-macOS`** artifact from the [Actions tab](https://github.com/sanjaygb/AWSCode/actions/workflows/build-macos.yml), unzip it, and open `TicTacToe.app`.
+
+> **Note:** CI builds are ad-hoc signed. On first launch, right-click the app → **Open** to bypass Gatekeeper, or allow it in **System Settings → Privacy & Security**.
 
 ## Project Structure
 
