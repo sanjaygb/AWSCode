@@ -37,10 +37,8 @@ enum ComputerPlayer {
         human: Player
     ) -> Int {
         switch outcome(for: board) {
-        case .won(computer):
-            return 10
-        case .won(human):
-            return -10
+        case .won(let winner):
+            return winner == computer ? 10 : -10
         case .draw:
             return 0
         case .inProgress:
